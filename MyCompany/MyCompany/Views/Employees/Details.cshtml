@@ -1,0 +1,43 @@
+﻿@model MyCompany.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        @*Here we modified the details for the DepartmentID field and instead of directly displaying the DepartmentID, we are now returning the ViewBag data from our collection: DepartmentName that we created*@
+        <dt>
+            Department:
+        </dt>
+        <dd>
+            @ViewData["DepartmentName"].ToString()
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NewHireDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NewHireDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EmployeeID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
